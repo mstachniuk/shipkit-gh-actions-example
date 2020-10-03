@@ -12,6 +12,8 @@ plugins {
     id "org.shipkit.java" version "2.3.4"
 }
 
+group = 'com.stachniuk.shipkitghactionsexample'
+
 repositories {
     // Use jcenter for resolving dependencies.
     // You can declare any Maven/Ivy/file repository here.
