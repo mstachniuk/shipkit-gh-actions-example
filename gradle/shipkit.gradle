@@ -5,15 +5,12 @@
 //     https://github.com/mockito/shipkit/blob/master/docs/getting-started.md
 //
 shipkit {
-    //TODO is the repository correct?
-    gitHub.repository = "unspecified-user/unspecified-repo"
+    gitHub.repository = "mstachniuk/shipkit-gh-actions-example"
 
     //TODO generate and use your own read-only GitHub personal access token
     //More: https://github.com/mockito/shipkit/blob/master/docs/getting-started.md#production-configuration
     gitHub.readOnlyAuthToken = "76826c9ec886612f504d12fd4268b16721c4f85d"
 
-    //TODO generate GitHub write token, and ensure your Travis CI has this env variable exported
-    //More: https://github.com/mockito/shipkit/blob/master/docs/getting-started.md#write-token
     gitHub.writeAuthToken = System.getenv("GH_WRITE_TOKEN")
 }
 
