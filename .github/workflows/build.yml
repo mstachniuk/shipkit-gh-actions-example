@@ -24,7 +24,7 @@ jobs:
         run: |
            echo "TRAVIS_COMMIT_MESSAGE=$(git log -1 --pretty=%B)" >> $GITHUB_ENV
            echo "TRAVIS_BRANCH=$(echo ${{ github.ref }} | sed 's@refs/heads/@@' )" >> $GITHUB_ENV
-           echo "TRAVIS_PULL_REQUEST=$(if [ ${{ github.event }} == 'pull_request' ]; then 'true'; else 'false'; fi)" >> $GITHUB_ENV
+           echo "TRAVIS_PULL_REQUEST=$(echo ${{ github.event }} | sed 's@pull_request@true@' | sed 's@@false@' )" >> $GITHUB_ENV
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
       - name: Build with Gradle
