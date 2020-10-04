@@ -23,6 +23,10 @@ jobs:
       - name: Set Environment variables if PR
         if: ${{ github.event_name == 'pull_request' }}
         run: |
+          echo "github.sha ${{ github.sha }}"
+          echo "github.ref ${{ github.ref }}"
+          echo "github.head_ref ${{ github.head_ref }}"
+          echo "github.base_ref ${{ github.base_ref }}"
           echo "TRAVIS_PULL_REQUEST=true" >> $GITHUB_ENV
           echo "TRAVIS_BRANCH=$(echo ${{ github.head_ref }})" >> $GITHUB_ENV
           echo "TRAVIS_COMMIT_MESSAGE=$(git log -1 --pretty=%B ${{ github.head_ref }})" >> $GITHUB_ENV
