@@ -26,8 +26,10 @@ jobs:
           echo "github.ref ${{ github.ref }}"
           echo "github.event ${{ github.event }}"
           echo "github.head_ref ${{ github.head_ref }}"
+          echo "GITHUB_EVENT_NAME $GITHUB_EVENT_NAME"
+          echo "github.event_name ${{ github.event_name }}"
           echo "TRAVIS_BRANCH=$(echo ${{ github.ref }} | sed 's@refs/heads/@@' )" >> $GITHUB_ENV
-          echo "TRAVIS_PULL_REQUEST=$(echo ${{ github.event }} | sed s/pull_request/true/ | grep true || echo false)" >> $GITHUB_ENV
+          echo "TRAVIS_PULL_REQUEST=$(echo ${{ github.event_name }} | sed s/pull_request/true/ | grep true || echo false)" >> $GITHUB_ENV
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
       - name: Build with Gradle
