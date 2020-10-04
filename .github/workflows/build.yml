@@ -27,7 +27,7 @@ jobs:
         run: |
           echo "TRAVIS_PULL_REQUEST=true" >> $GITHUB_ENV
           echo "TRAVIS_BRANCH=$(echo ${{ github.head_ref }})" >> $GITHUB_ENV
-          echo "TRAVIS_COMMIT_MESSAGE=$(git log -1 --pretty=%B | sed 's/Merge //' | sed 's/ into [[a-zA-Z0-9]*//' | xargs git log -1 --pretty=%B)" >> $GITHUB_ENV
+          echo "TRAVIS_COMMIT_MESSAGE=$(git log -1 --pretty=%B | sed 's/Merge //' | sed 's/ into [[a-zA-Z0-9]*//' | xargs git log -1 --pretty=%B | xargs echo)" >> $GITHUB_ENV
       - name: Set Environment variables if not PR
         if: ${{ github.event_name != 'pull_request' }}
         run: |
