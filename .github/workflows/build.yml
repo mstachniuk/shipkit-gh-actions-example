@@ -37,3 +37,4 @@ jobs:
           TRAVIS_BRANCH: ${{ steps.gitbranch.outputs.replaced }}
           TRAVIS_COMMIT_MESSAGE: ${{ github.event.head_commit.message }}
           TRAVIS_PULL_REQUEST: ${{ github.event_name == 'pull_request' }}
+
