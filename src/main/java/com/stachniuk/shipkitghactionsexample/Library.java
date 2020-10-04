@@ -5,6 +5,6 @@ package com.stachniuk.shipkitghactionsexample;
 
 public class Library {
     public boolean someLibraryMethod() {
-        return true;
+        return false;
     }
 }
