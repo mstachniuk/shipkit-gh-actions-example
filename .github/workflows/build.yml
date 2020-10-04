@@ -31,18 +31,9 @@ jobs:
       - name: Set Environment variables if not PR
         if: ${{ github.event_name != 'pull_request' }}
         run: |
-          echo "github.sha ${{ github.sha }}"
-          echo "github.ref ${{ github.ref }}"
-          echo "github.head_ref ${{ github.head_ref }}"
-          echo "github.base_ref ${{ github.base_ref }}"
-          echo "git log...."
-          git log -1 --pretty=%B
           echo "TRAVIS_PULL_REQUEST=false" >> $GITHUB_ENV
           echo "TRAVIS_BRANCH=$(echo ${{ github.ref }} | sed 's@refs/heads/@@' )" >> $GITHUB_ENV
           echo "TRAVIS_COMMIT_MESSAGE=$(git log -1 --pretty=%B | xargs echo)" >> $GITHUB_ENV
-      - name:
-        if: ${{ failure() }}
-        run: env
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
       - name: Build with Gradle
