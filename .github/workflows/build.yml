@@ -22,9 +22,8 @@ jobs:
           java-version: 1.8
       - name: Set Environment variables
         run: |
-          echo "TRAVIS_COMMIT_MESSAGE=$(git log -1 --pretty=%B)" >> $GITHUB_ENV
-          echo ${{ github.head_ref }}
-          echo "TRAVIS_PULL_REQUEST=$(if [ github.event == 'pull_request' ]; then true; else false)" >> $GITHUB_ENV
+           echo "TRAVIS_COMMIT_MESSAGE=$(git log -1 --pretty=%B)" >> $GITHUB_ENV
+           echo "TRAVIS_BRANCH=${{ github.ref }}" >> $GITHUB_ENV
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
       - name: Build with Gradle
